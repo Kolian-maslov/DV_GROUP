@@ -1,0 +1,170 @@
+body {
+    max-width: 1920px;
+    padding: 0px;
+    margin: 0px;
+    background: #DCD8D3;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+}
+
+.con {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding:  100px 120px;
+}
+
+/* По умолчанию карточки горизонтальные */
+.card {
+    margin-top: 100px;
+    min-width: 100px;
+    width: 250px;
+    height: 800px;
+    border-radius: 40px;
+    transition: 500ms;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Круг с логотипом */
+.logo-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    /* Центрируем логотип по умолчанию */
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 500ms, visibility 500ms;
+    overflow: hidden;
+}
+
+.logo-circle img {
+    max-width: 70%;
+    max-height: 70%;
+}
+
+/* Индивидуальные фоны для каждой карточки */
+.card1 {
+    background-image: url(PrivateBroker.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.card2 {
+    background-image: url(K34.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.card3 {
+    background-image: url(Dream.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.card4 {
+    background-image: url(TourService.png);
+    background-position: center;
+    background-size: cover;
+}
+
+/* Класс active: увеличение карточки на больших экранах */
+.card.active {
+    width: 1920px;
+}
+
+/* Скрытые элементы внутри карточек */
+.card-title,
+.card-description,
+.card-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms, visibility 500ms;
+    position: absolute;
+}
+
+.card-title {
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #000;
+}
+
+.card-description {
+    top: 100px;
+    left: 20px;
+    color: #000;
+}
+
+.card-button {
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* При активной карточке показываем элементы */
+.card.active .card-title,
+.card.active .card-description,
+.card.active .card-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Скрываем логотип при активации карточки */
+.card.active .logo-circle {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Медиа-запрос для мобильных устройств (до 768px) */
+@media screen and (max-width: 768px) {
+    .con {
+        flex-direction: column;
+        /* Устанавливаем вертикальное расположение */
+        align-items: center;
+        /* Центрируем карточки по горизонтали */
+        padding: 0px 0px;
+    }
+
+    .card {
+        width: 90%;
+        /* Ширина карточек на мобильных устройствах будет 90% */
+        height: 100px;
+        /* Высота карточек будет автоматически зависеть от содержимого */
+        margin-top: 20px;
+        /* Отступ между карточками */
+        transition: height 500ms ease;
+        /* Плавный переход для высоты */
+    }
+
+    /* Увеличиваем карточки вертикально при активации на мобильных устройствах */
+    .card.active {
+        width: 90%;
+        /* Ширина остается такой же */
+        height: 400px;
+        /* Высота увеличивается при активации */
+    }
+
+    /* Ставим логотип по левому краю в мобильной версии */
+    .logo-circle {
+        left: 20px;
+        /* Логотип будет располагаться на 20px от левого края */
+        top: 0px;
+        transform: translateX(0);
+        /* Убираем смещение по оси X */
+    }
+}
