@@ -1,62 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
-    <title>DV_GROUP</title>
-    <meta charset="UTF-8">
+    <link type="image/x-icon" href="Favicon.ico" rel="shortcut icon">
     <link rel='stylesheet' href='StyleMain.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-        rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DV_Group</title>
+
 </head>
+<header>
+    <div class="logo">
+        <img src="Logo.svg" width="100%">
+    </div>
+</header>
 
 <body>
-    <div class="con">
-        <div class="card card1">
-            <div class="logo-circle">
-                <img src="Frame 11.png" alt="Logo 1">
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="Private_broker.png" alt="Image 1">
+                <div class="TX">10%</div>
+                <div class="description">Private Broker - это персональное управление портфелем недвижимости и обширная
+                    коллекция исключительных обьектов недвижимости. Private Broker обеспечивает доступ только к
+                    проверенным лотам, гарантируя надежность инвестиций и предостерегая от потенциальных рисков. При
+                    этом мы всегда скрупулезно подходим к поиску и находим именно то, что нужно нашему клиенту, будь то
+                    клубный формат жилья, приватность и тишину в центре города, ситихаусы с патио, дизайн-проекты от
+                    архитекторов с мировым именем, квартиры с каминами, виллы с отдельными приватными входами и
+                    бассейнами, роскошные особняки, инвестиционные активы и пассивный стабильный доход.</div>
+                <a href="https://private-broker.ru">
+                    <div class="button2">Подробнее</div>
+                </a>
             </div>
-            <h2 class="card-title">Title 1</h2>
-            <p class="card-description">This is a description for the first card.</p>
-            <a href="https://k-34.ru/" class="card-button">Learn More</a>
-        </div>
-        <div class="card card2">
-            <div class="logo-circle">
-                <img src="Frame 29.png" alt="Logo 2">
+            <div class="slide">
+                <img src="Tour-service.png" alt="Image 2">
+                <div class="TX">10%</div>
+                <div class="description">Tourservice - Ваш личный помощник в организации отдыха и досуга. Команда
+                    tourservice искренне верит, что впечатления от путешествий остаются с Вами навсегда. Именно поэтому
+                    мы не просто организуем Вашу поездку, а наполняем каждый момент незабываемыми впечатлениями. Мы
+                    заботимся обо всех аспектах Вашей жизни: от решения повседневных задач и планирования путешествий до
+                    выполнения особых поручений.</div>
+                <a href="#">
+                    <div class="button2">Подробнее</div>
+                </a>
             </div>
-            <h2 class="card-title">Title 2</h2>
-            <p class="card-description">This is a description for the second card.</p>
-            <a href="https://k-34.ru/" class="card-button">Learn More</a>
-        </div>
-        <div class="card card3">
-            <div class="logo-circle">
-                <img src="Frame 12.png" alt="Logo 3">
+            <div class="slide">
+                <img src="K34.png" alt="Image 2">
+                <div class="TX">10%</div>
+                <div class="description">K-34 — это больше, чем просто детейлинг-центр; это закрытое пространство для
+                    избранных, где автомобили получают исключительное внимание. Услуги компании доступны только для
+                    узкого круга клиентов, что подчеркивает её уникальный подход и высокие стандарты. Здесь ценится
+                    внимание к деталям и безупречный результат.</div>
+                <a href="https://k-34.ru/">
+                    <div class="button2">Подробнее</div>
+                </a>
             </div>
-            <h2 class="card-title">Title 3</h2>
-            <p class="card-description">This is a description for the third card.</p>
-            <a href="https://k-34.ru/" class="card-button">Learn More</a>
-        </div>
-        <div class="card card4">
-            <div class="logo-circle">
-                <img src="Frame 28.png" alt="Logo 4">
+            <div class="slide">
+                <img src="Мечта.png" alt="Image 3">
+                <div class="TX">10%</div>
+                <div class="description">Ресторан «Мечта» — это стильное и уютное место, где можно провести время с
+                    друзьями или встретиться с деловыми партнерами.</div>
+                <a href="https://mechta-cafe.ru/tpost/ho6klf3ha1-kruglosutochnii-restoran-na-paveletskoi">
+                    <div class="button2">Подробнее</div>
+                </a>
             </div>
-            <h2 class="card-title">Title 4</h2>
-            <p class="card-description">This is a description for the fourth card.</p>
-            <a href="https://k-34.ru/" class="card-button">Learn More</a>
+            
+
         </div>
+        <button class="btn btn-left" onclick="prevSlide()">&#10094;</button>
+        <button class="btn btn-right" onclick="nextSlide()">&#10095;</button>
     </div>
 
     <script>
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('click', function () {
-                cards.forEach(c => c.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
+        let currentIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalSlides - 1;
+            } else {
+                currentIndex = index;
+            }
+            slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
     </script>
 </body>
 

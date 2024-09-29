@@ -1,170 +1,269 @@
 body {
-    max-width: 1920px;
-    padding: 0px;
-    margin: 0px;
-    background: #DCD8D3;
-    font-family: 'Montserrat', sans-serif;
-    margin-left: auto;
-    margin-right: auto;
-    user-select: none;
-}
-
-.con {
     display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding:  100px 120px;
-}
-
-/* По умолчанию карточки горизонтальные */
-.card {
-    margin-top: 100px;
-    min-width: 100px;
-    width: 250px;
-    height: 800px;
-    border-radius: 40px;
-    transition: 500ms;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
-}
-
-/* Круг с логотипом */
-.logo-circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    /* Центрируем логотип по умолчанию */
-    transform: translateX(-50%);
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 500ms, visibility 500ms;
-    overflow: hidden;
+    
+    background-color: #DCD8D3;
+    margin: 0;
+    padding-top: 110px;
+    user-select: none;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Gals";
 }
 
-.logo-circle img {
-    max-width: 70%;
-    max-height: 70%;
+@font-face {
+    font-family: "Gals";
+    src: url("gals.eot");
+    src: url("gals.eot?#iefix") format("embedded-opentype"),
+        url("gals.otf") format("opentype"),
+        url("gals.svg") format("svg"),
+        url("gals.ttf") format("truetype"),
+        url("gals.woff") format("woff"),
+        url("gals.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Индивидуальные фоны для каждой карточки */
-.card1 {
-    background-image: url(PrivateBroker.png);
-    background-position: center;
-    background-size: cover;
+@font-face {
+    font-family: "TT Ricordi Marmo Trial Light";
+    src: url("TT_Ricordi_Marmo_Trial_Light.eot?") format("eot"),
+    url("TT_Ricordi_Marmo_Trial_Light.woff") format("woff"),
+    url("TT_Ricordi_Marmo_Trial_Light.ttf") format("truetype"),
+    url("TT_Ricordi_Marmo_Trial_Light.svg#TTRicordiMarmoTrial-Light") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
-.card2 {
-    background-image: url(K34.jpg);
-    background-position: center;
-    background-size: cover;
-}
 
-.card3 {
-    background-image: url(Dream.jpg);
-    background-position: center;
-    background-size: cover;
-}
 
-.card4 {
-    background-image: url(TourService.png);
-    background-position: center;
-    background-size: cover;
-}
-
-/* Класс active: увеличение карточки на больших экранах */
-.card.active {
-    width: 1920px;
-}
-
-/* Скрытые элементы внутри карточек */
-.card-title,
-.card-description,
-.card-button {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 500ms, visibility 500ms;
+header {
+    display: flex;
+    justify-content: center;
+    margin: 0;
     position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0px;
 }
 
-.card-title {
-    top: 20px;
-    left: 20px;
-    font-size: 24px;
-    color: #000;
+
+.logo {
+    width: 80px;
 }
 
-.card-description {
-    top: 100px;
-    left: 20px;
-    color: #000;
+.slider {
+    width: 100%;
+    max-width: auto;
+    position: relative;
+    overflow: hidden;
+    margin: 0px 120px;
 }
 
-.card-button {
-    bottom: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.slide img {
+    width: 100%;
+    max-width: 600px;
+    max-height: 400px;
+}
+
+.TX {
+    font-size: 64px;
+    font-weight: 600px;
+    font-family: "TT Ricordi Marmo Trial Light";
+}
+
+
+.description {
+    margin: 40px 15%;
+    font-size: 20px;
+    font-family: "Gals";
+}
+
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
     border: none;
-    color: white;
     cursor: pointer;
-    border-radius: 10px;
-    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 50%;
+    font-size: 24px;
+    
 }
 
-/* При активной карточке показываем элементы */
-.card.active .card-title,
-.card.active .card-description,
-.card.active .card-button {
-    opacity: 1;
-    visibility: visible;
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Скрываем логотип при активации карточки */
-.card.active .logo-circle {
-    opacity: 0;
-    visibility: hidden;
+.btn-left {
+    left: 10px;
 }
 
-/* Медиа-запрос для мобильных устройств (до 768px) */
-@media screen and (max-width: 768px) {
-    .con {
-        flex-direction: column;
-        /* Устанавливаем вертикальное расположение */
-        align-items: center;
-        /* Центрируем карточки по горизонтали */
-        padding: 0px 0px;
+.btn-right {
+    right: 10px;
+}
+
+.button2 {
+    display: inline-block;
+    background-color: black;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Gals';
+}
+
+.button2:hover {
+    background-color: rgb(90, 90, 90);
+}
+
+
+
+
+@media screen and (max-width: 390px) {
+    .header{
+        padding: 5px 0px;
+    }
+    .logo {
+        width: 48px;
     }
 
-    .card {
-        width: 90%;
-        /* Ширина карточек на мобильных устройствах будет 90% */
-        height: 100px;
-        /* Высота карточек будет автоматически зависеть от содержимого */
-        margin-top: 20px;
-        /* Отступ между карточками */
-        transition: height 500ms ease;
-        /* Плавный переход для высоты */
+    .btn {
+        top: 30%;
+        padding: 10px 15px;
+        font-size: 14px;  
     }
 
-    /* Увеличиваем карточки вертикально при активации на мобильных устройствах */
-    .card.active {
-        width: 90%;
-        /* Ширина остается такой же */
-        height: 400px;
-        /* Высота увеличивается при активации */
+    .TX {
+        font-size: 32px;  
+    }
+    .description {
+        margin: 40px 0%;
+        font-size: 14px;
+        
+    }
+    .button2 {
+       
+        font-size: 16px;
+        
+    }
+}
+
+
+@media screen and (min-width: 390px) {
+    .header{
+        padding: 5px 0px;
+    }
+    .logo {
+        width: 48px;
+    }
+    .btn {
+        top: 30%;
+        padding: 10px 15px;
+        font-size: 14px;  
+    }
+    .TX {
+        font-size: 32px;  
     }
 
-    /* Ставим логотип по левому краю в мобильной версии */
-    .logo-circle {
-        left: 20px;
-        /* Логотип будет располагаться на 20px от левого края */
-        top: 0px;
-        transform: translateX(0);
-        /* Убираем смещение по оси X */
+    .description {
+        margin: 20px 0%;
+        font-size: 14px;
+        
     }
+
+    .button2 {
+       
+        font-size: 16px;
+        
+    }
+
+}
+
+
+@media screen and (min-width: 600px) {
+    .header{
+        padding: 20px 0px;
+    }
+    .logo {
+        width: 80px;
+    }
+    .btn {
+        top: 30%;
+        padding: 10px 15px;
+        font-size: 14px;  
+    }
+    .description {
+        margin: 20px 0%;
+        font-size: 16px;
+        
+    }
+
+    .button2 {
+       
+        font-size: 16px;
+        
+    }
+    .TX {
+        font-size: 48px;
+        
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .description {
+        margin: 20px 10%;
+        font-size: 20px;
+        
+    }
+    .button2 {
+       
+        font-size: 24px;
+        
+    }
+    .TX {
+        font-size: 48px;
+        
+    }
+
+    .btn {
+        top: 50%;
+        padding: 10px 18px;
+        font-size: 20px;  
+    }
+}
+
+
+@media screen and (min-width: 992px) {}
+
+
+@media screen and (min-width: 1200px) {}
+
+
+@media screen and (min-width: 1400px) {
+
+}
+
+
+@media screen and (min-width: 1900px) {
+  
 }
